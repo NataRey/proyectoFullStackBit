@@ -41,6 +41,12 @@ En la terminal ingreso el comando npm run dev para probar la conexion
 [nodemon] starting `node src/index.js`
 El servidor se esta escuchando en el link http://localhost:3000
 
+4. creamos un archivo .env a la misma altura de mi package.json
+# .env
+5. dentro del archivo .env creo una variable de entorno que va a contener la ruta que copie en mongoDB en este caso mi variable de entorno se llama MONGODB (puede ser cualquier nombre)
+6. en la conexion importo mongoose  llamo a el metodo connect y dentor del metodo llamo a al proceso y le digo que revise la variable de entorno que esta dentro del archivo .env 
+7. luego modifico mi archivo index.js en sus primeras lineas agregando las importanciondes de dotenv import "dotenv/config"; para que podamos leer la ruta de nuestra variable de entorno y luego importo la conexion a la v=base de datos que esta en mi archivo llamado conexion.js 
+
 
 
 
