@@ -1,12 +1,12 @@
 import express from "express";// para realizar la conexion con el servidor 
 import morgan from "morgan";//monitorear solicitudes http
 
-const servidor = express();
-servidor.use(morgan("dev"));
-servidor.use(express.json());
+const servidor = express();//para realizar la conexion con la constante servidor 
+servidor.use(morgan("dev"));//para que se actualice conforme vamos realizando los cambios 
+servidor.use(express.json());//para que la conexion que realicemos nos reciba un formato json
 
 servidor.get('/',(sol , res)=>{
-    res.status(404).send("No encontrado");
+    res.status(404).send("No encontrado");//por si no encuentra la conexion me enviara esta respuesta 
 
 });
 

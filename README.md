@@ -27,7 +27,19 @@ Es un midlelware de Express y registra las solicituides http
 
 2. sobre la misma linea de mi package.json  voy a crea una carpeta que sera nuestro src dentro creo 3 archivos index, servidor y conexion 
 
+3. luego de reslizar la configuracion del servidor y el puerto probamos la conexion 
+# Probar la conexion
 
+En la terminal ingreso el comando npm run dev para probar la conexion 
+* dentro de la consola me debe devolver esta respuesta 
+> back@1.0.0 dev
+> nodemon src/index.js
+[nodemon] 3.1.4
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node src/index.js`
+El servidor se esta escuchando en el link http://localhost:3000
 
 
 
