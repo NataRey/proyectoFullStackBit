@@ -46,4 +46,7 @@ const controllerProducts = {
         }
     },
 
+
+
 }
+export default controllerProducts;
