@@ -11,7 +11,6 @@ servidor.use('/users', routerUsers);
 
 servidor.get('/',(sol , res)=>{
     res.status(404).send("No encontrado");//por si no encuentra la conexion me enviara esta respuesta 
-
 });
 
 export default servidor;
