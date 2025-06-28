@@ -41,12 +41,86 @@ const controllerProducts = {
             res.json({
                 result: 'mistake',
                 message: 'An error occurred creating the product',
-                data: null,
+                data: error,
             });
         }
     },
 
+readProduct : async (sol , res)=>{
+    try{
+        const productFound = await modelProducts.findById(sol.params.id);
+        if(productFound._id){
+            res.json({
+                result:'fine',
+                message: 'Product read',
+                data: productFound,
+            });
+        }
 
+    }catch(error){
+        res.json({
+            result: 'mistake',
+            message: 'An error occurred reading the product',
+            data: error,
+        });
+    }
+},
 
+readProducts : async(sol , res)=>{
+    try{
+        const allProductsFound = await modelProducts.find();
+        res.json({
+            result: 'fine',
+            message: ' Products found',
+            data: allProductsFound
+        });
+    }catch(error){
+        res.json({
+            result: ' mistake',
+            message: 'An error occurred reading all products',
+            data: error,
+        });
+    }   
+},
+updateProduct : async(sol , res)=>{
+    try {
+        const productUpdate = await modelProducts.findByIdAndUpdate(sol.params.id,
+            sol.body
+        );
+        if(productUpdate._id){
+            res.json({
+                result:'fine',
+                message:'product update',
+                data: productUpdate._id,
+            });
+        }
+
+    }catch(error){
+        res.json({
+            result: ' mistake',
+            message: 'An error occurred updating all products',
+            data: error,
+        });
+    }
+},
+
+deleteProduct : async (sol , res)=>{
+    try{
+        const productDelete = await modelProducts.findByIdAndDelete(sol.params.id);
+        if(productDelete){
+            res.json({
+                result:'fine',
+                message:'product delete',
+                data: null,
+            });
+        }
+    }catch(error){
+        res.json({
+            result: ' mistake',
+            message: 'An error occurred deleting all products',
+            data: error,
+        });
+    }
+}
 }
 export default controllerProducts;
