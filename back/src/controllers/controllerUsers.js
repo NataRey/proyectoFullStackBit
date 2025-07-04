@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';// para encriptar la contrasena
 import modelUsers from "../models/modelUsers.js"// para poder controlar el schema de usuarios
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
-import { text } from 'stream/consumers';
+
 
 const ControllerUsers = {
     createUser: async(sol , res)=>{
