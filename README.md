@@ -174,3 +174,14 @@ servidor.use('/imagenes', express.static(path.resolve(`imagenes`)));
 * DELETE http://localhost:3000/users/idaeliminar
 
 
+## PASANDO AL FRONT 
+1. fuera del back en mi carpeta del poryecto instalo el cli de angular con el comando npm install -g @angular/cli
+2. mirar la version ng version
+3. crear el nuevo poryecto ng new front, la prima opcion y(yes) y luego el primer css recomendado y luego y(yes)
+4. instalar las dependencias a usar
+npm i bootstrap@5.3.7
+npm i cors
+
+
+
+
