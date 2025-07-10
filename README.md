@@ -177,10 +177,25 @@ servidor.use('/imagenes', express.static(path.resolve(`imagenes`)));
 ## PASANDO AL FRONT 
 1. fuera del back en mi carpeta del poryecto instalo el cli de angular con el comando npm install -g @angular/cli
 2. mirar la version ng version
-3. crear el nuevo poryecto ng new front, la prima opcion y(yes) y luego el primer css recomendado y luego y(yes)
+3. crear el nuevo poryecto ng new front, la primera opcion y(yes) y luego el primer css recomendado y luego y(yes)
 4. instalar las dependencias a usar
 npm i bootstrap@5.3.7
-npm i cors
+npm i bootstrap-icons
+npm i cors: sirve como puente desde el servidor 4200 al servidor 3000
+npm i ngx-toastr: mostrar notificaciones tipo toast o pop-up
+
+## CREACION DE COMPONENTES
+5. ng generate component components/nombre-del-componente  == ng g c components/nombre-del-componente
+home, navigation, login,register, page-not-found
+
+6. visualizar desde el navegador ng serve -o = 4200
+ng serve --port 4201
+ng s= 4200
+
+7. app.html 
+* Este es el componente raiz de la aplicacion aqui podemos poner la informacion que queremos que se visualice en nuesta primera pagina 
+* este componente tiene un diseño por defecto alli podemos borrar todo ese diseño previo y solo dejar <router-outlet /> como nos lo indica el archivo 
+* como el primero que quiero poner es el nav voy a ir a navigation.ts y luego copio el nombre del  selector: 'app-navigation', luego voy a mi archivo app.html y pego la ruta de la siguiete forma <app-navigation/> luego realizo la prueba para ver si el app.html muestra los datos del navigation.html, en la consola pongo el comando ng serve -o  || ng s || ng s -o
 
 
 

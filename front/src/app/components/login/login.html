@@ -1,0 +1,9 @@
+<p>login works!</p>
+<form [formGroup]="credentialForm" (ngSubmit)="handleSubmit()">
+    <input type="text" 
+            placeholder="username"
+            formControlName="username"> 
+    <input type="password"
+            placeholder="password" formControlName="password">
+  <button type="submit"  value="Login">Submit</button>
+</form>
