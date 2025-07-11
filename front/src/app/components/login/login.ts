@@ -1,7 +1,9 @@
 
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Credential } from '../../interfaces/credential';
 import { ReactiveFormsModule, FormControl, FormGroup, Validators} from '@angular/forms';
+import { LoginService } from '../../services/login-service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,6 +13,8 @@ import { ReactiveFormsModule, FormControl, FormGroup, Validators} from '@angular
   styleUrl: './login.css'
 })
 export class Login {
+  router = inject(Router);
+  loginService : LoginService = inject(LoginService);
   credentialForm = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
@@ -27,9 +31,11 @@ export class Login {
           username,
           password,
       };
-      console.log(credential);
+      this.loginService.login(credential).subscribe((response:any)=>{
+        console.log("response: ", response);
+        this.router.navigateByUrl('/shop');
+      });
       }
-
     }else{
       console.log("Error invalid form");
     }
