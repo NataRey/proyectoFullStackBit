@@ -33,6 +33,10 @@ export class Login {
       };
       this.loginService.login(credential).subscribe((response:any)=>{
         console.log("response: ", response);
+        //agregar esto para guardar el token en el local storage
+        localStorage.setItem('token',response.data);
+        alert("redirigiendo al shop");
+        //redirige al shop
         this.router.navigateByUrl('/shop');
       });
       }

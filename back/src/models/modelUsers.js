@@ -15,12 +15,12 @@ const schemaUser = new Schema({
         trim: true, // elimina los espacios en blanco del inicio y final
         match:[/^(?=.*[!@#$%^&*()_\-+={}[\]|\\:;"'<>,.?/~`])\S+$/,"password invalid"] 
     },
-        role:{
-         type: String, 
-         enum:["user", "admin"],
-         default:"user",
-         required: false
-     } 
+    //     role:{
+    //      type: String, 
+    //      enum:["user", "admin"],
+    //      default:"user",
+    //      required: false
+    //  } 
 });
 
 export default model ('User', schemaUser);
