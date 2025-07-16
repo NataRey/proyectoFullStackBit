@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 
 export function generarToken(payload){
     return new Promise((resolver, rechazar)=>{
-        jwt.sign(payload,'llave secreta', {expiresIn: '30s'},(error,token)=>{
+        jwt.sign(payload,'llave secreta', {expiresIn: '1h'},(error,token)=>{
             if(error){
                 rechazar(error);
             }else{

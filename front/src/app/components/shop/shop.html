@@ -1,2 +1,23 @@
-<p>shop works!</p>
 <button (click)="logout()" class="btn btn-danger" >Cerrar sesion</button>
+
+<p *ngIf="productos.length === 0"> No hay productos disponibles</p>
+
+<div class="container mt-4" *ngIf="productos.length > 0">
+    <div class="row">
+        <div class="col-md-4 mb-4" *ngFor="let p of productos">
+            <div class="card" style="width: 18rem;">
+                <img [src]="getImageUrl(p.imagen)" class="card-img-top" [alt]="p.modelo">
+                <div class="card-body">
+                <h5 class="card-title">{{p.modelo}}</h5>
+                <p class = "card-text">
+                    Material: {{p.material}}<br>
+                    Color: {{p.color}}<br>
+                    Precio: ${{p.precio}}
+                </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
