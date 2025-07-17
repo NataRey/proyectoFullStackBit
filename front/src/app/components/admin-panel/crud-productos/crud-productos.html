@@ -1,0 +1,65 @@
+<p>crud-productos works!</p>
+<button (click)="prepararCrear()" class="btn btn-success">Nuevo producto</button>
+
+<div *ngIf="mostrarFormulario" class="mt-3">
+    <form (ngSubmit)="modo === 'crear' ? crearProducto(): actualizarProducto()"enctype="multipart/form-data">
+        <div>
+            <label>Modelo:</label>
+            <input type="text" [(ngModel)]="productoForm.modelo" name="modelo" required/>
+        </div>
+        <div>
+            <label>Material:</label>
+            <input type="text" [(ngModel)]="productoForm.material" name="material" required/>
+        </div>
+        <div>
+            <label>Precio:</label>
+            <input type="text" [(ngModel)]="productoForm.precio" name="precio" required/>
+        </div>
+        <div>
+            <label>Color:</label>
+            <input type="text" [(ngModel)]="productoForm.color" name="color" required/>
+        </div>
+        <div>
+            <label>Imagen:</label>
+            <input type="file" (change)="onFileSelected($event)"/>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">
+                {{modo === 'crear' ? 'Crear producto': 'Actualizar producto'}}
+            </button>
+            <button type="button" class="btn btn-info" (click)="cancelarFormulario()">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+
+<!-- Tabla de productos para editar o eliminar -->
+
+<p *ngIf="productos.length === 0">No hay productos disponibles</p>
+<table>
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Modelo</th>
+            <th>Material</th>
+            <th>Precio</th>
+            <th>Color</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prod of productos">
+            <td><img [src]="imagenBaseUrl + prod.imagen" width="80" [alt]=""></td>
+            <td>{{prod.modelo}}</td>
+            <td>{{prod.material}}</td>
+            <td>{{prod.precio}}</td>
+            <td>{{prod.color}}</td>
+            <td>
+                <button class="btn btn-sm btn-warning"(click)="seleccionarParaEditar(prod)">Editar</button>
+                <button class="btn btn-sm btn-danger"(click)="eliminarProducto(prod._id!)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+

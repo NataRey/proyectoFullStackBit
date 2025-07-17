@@ -7,13 +7,15 @@ import nodemailer from 'nodemailer';
 const ControllerUsers = {
     createUser: async(sol , res)=>{
         try{
-            const {name, email, password} = sol.body;
+            const {name, email, password, rol} = sol.body;
             console.log(sol.body);
             const passwordProtected = await bcrypt.hash(password, 10);
             const newUser = new modelUsers({
                 name,
                 email,
                 password: passwordProtected,
+                rol:rol || 'user'
+
             });
             console.log(newUser);
 

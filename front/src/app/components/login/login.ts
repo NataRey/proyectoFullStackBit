@@ -33,12 +33,28 @@ export class Login {
           password,
       };
       this.loginService.login(credential).subscribe((response:any)=>{
-        console.log("response: ", response);
+        //console.log("response: ", response);
         //agregar esto para guardar el token en el local storage
-        localStorage.setItem('token',response.data);
-        alert("redirigiendo al shop");
+        //localStorage.setItem('token',response.data);
+        //alert("redirigiendo al shop");
         //redirige al shop
-        this.router.navigateByUrl('/shop');
+        // this.router.navigateByUrl('/shop');
+        if(response.result === 'fine'){
+          
+          localStorage.setItem('token',response.data);
+
+          //decodificamos el token para obtener el rol 
+          const decoded: any = this.loginService.decodeToken(response.data);
+          console.log('Token decodificado', decoded);
+          if(decoded.rol === 'admin'){
+            this.router.navigateByUrl('/admin-panel');
+          }else{
+            alert("redirigiendo al shop");
+             this.router.navigateByUrl('/shop');
+          }
+
+        }
+
       });
       }
     }else{
